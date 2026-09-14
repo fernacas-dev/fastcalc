@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=FastCalc
+GenericName=Calculator
+Comment=Minimal high-performance calculator
+Exec=fastcalc
+Icon=fastcalc
+Terminal=false
+Categories=Utility;Calculator;
+Keywords=Calculator;Calc;Arithmetic;
+StartupWMClass=fastcalc

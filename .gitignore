@@ -1,0 +1,40 @@
+# Build directories (CMake out-of-source builds)
+build/
+build-san/
+build-*/
+cmake-build-*/
+
+# CMake leftovers if someone builds in-source
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+install_manifest.txt
+
+# Compiled output
+*.o
+*.a
+*.so
+*.out
+fastcalc
+calculator_tests
+
+# Sanitizer / profiling / coverage
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+
+# Logs
+*.log
+
+# Editor / OS noise
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

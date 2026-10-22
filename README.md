@@ -1,8 +1,38 @@
 # FastCalc
 
+![CI](https://github.com/fernacas-dev/fastcalc/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![C17](https://img.shields.io/badge/C-C17-blue.svg)
+![SDL3](https://img.shields.io/badge/SDL-3-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)
+
 FastCalc is an extremely lightweight, fast, responsive graphical calculator
 for Linux. Tiny native utility: C17, SDL3 for window/input/rendering,
 FreeType for text, nothing else.
+
+No Electron, no Qt, no toolkit bloat — instant startup, ~zero idle CPU,
+deterministic event-driven repaints.
+
+> Built by **Fernando Castellanos** · maintained by **IdeaForgePR**.
+> Portfolio project showcasing native C systems programming:
+> state machines, event-driven UI, text rendering, and unit-tested core logic.
+
+## Features
+
+- Four-function calculator with keyboard + mouse support
+- Layout-correct text input (Shift+`=` gives `+`, keypad works, `,` as decimal)
+- Copy (`Ctrl+C`) / paste (`Ctrl+V`) via SDL clipboard
+- Dark / light theme (`Ctrl+T` or `F10`)
+- Adjustable font size (`Ctrl+Plus/Minus/0`)
+- Percentage with calculator semantics (`200 + 10 %` → `220`)
+- Clean `0.1 + 0.2 → 0.3` formatting (`%.15g`), `Error` on div-by-zero/overflow
+- Resizable window, hover/pressed button states
+- System install with `.desktop` launcher + SVG icon
+
+## Screenshot
+
+> TODO: add `assets/screenshot.png` (dark + light theme).
+> Suggested: 800×600 window, `200 + 10 % = 220` on display.
 
 ## Dependencies
 
@@ -52,6 +82,9 @@ Run the unit tests:
 ```bash
 ctest --test-dir build --output-on-failure
 ```
+
+CI (GitHub Actions, Ubuntu 24.04) runs both Release and Sanitizer builds
+on every push/PR. See `.github/workflows/ci.yml`.
 
 ## Run
 
@@ -135,6 +168,27 @@ pending, plain hundredths.
   blocks in `SDL_WaitEvent`).
 - **Interaction:** key/mouse event -> state update -> single repaint; no
   allocations in the render path besides first-time glyph uploads.
+
+## Roadmap
+
+- [ ] Screenshot + demo GIF in README
+- [ ] Restore display font size after long-value shrink (`renderer.c`)
+- [ ] Keyboard history / repeated-equals chain (optional)
+- [ ] Packaged release (`v1.0.0` tag + tarball)
+
+Non-goals for V1: expression parser, scientific functions, theming engine.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Bug reports and small focused PRs
+welcome. Please run `./build.sh` (includes tests) before submitting.
+
+Security issues: see [SECURITY.md](SECURITY.md) — do not open a public issue.
+
+## Author
+
+**Fernando Castellanos** — native Linux / C developer.
+Maintained under **IdeaForgePR** for portfolio and client work.
 
 ## License
 
